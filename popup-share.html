@@ -1,0 +1,600 @@
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='css/normalize.min.css' rel='stylesheet' type='text/css'>
+        <title>Share your awesome GIF with your friends!</title>
+        <style>
+            .container{
+                width: 100%;
+                height: 100%;
+                min-width: 320px;
+                overflow-x: hidden;
+            }
+            .popup-global{
+                font-family: 'PT Sans', sans-serif;
+                margin: 0 auto;
+                width: 100%;
+                padding: 0 8px;
+                height: 100%;
+                
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+            .popup-close{
+                position: absolute;
+                top: -18px;
+                right: -13px;
+                background: #fbfbfb;
+                
+                z-index: 20;
+                
+                
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+            }
+            
+            .popup-close a{
+                position: relative;
+                display: block;
+                width: 26px;
+                height: 26px;
+                text-indent: -9999px;
+                background: transparent;
+                border: 1px solid #d1d1d1;
+                z-index: 30;
+                
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+            }
+            .popup-close:before,
+            .popup-close:after{
+                content: "";
+                position: absolute;
+                left: 8px;
+                width: 12px;
+                height: 4px;
+                background: #444;
+                z-index: 25;
+                
+                
+                
+                
+                
+                
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+            }
+            .popup-close:before{
+                top: 12px;
+                /*animation: bounceBefore 500ms 1 forwards reverse;*/
+                
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+            }
+            .popup-close:after{
+                bottom: 12px;         
+                /*animation: bounceAfter 500ms 1 forwards reverse;*/
+                
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+            }
+            .popup-close:hover:before{
+                animation: elasticBefore 300ms 1 forwards normal;
+                -webkit-animation: elasticBefore 300ms 1 forwards normal;
+                -moz-animation: elasticBefore 300ms 1 forwards normal;
+                
+                animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                -webkit-animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                -moz-animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                
+            }
+            .popup-close:hover:after{
+                animation: elasticAfter 300ms 1 forwards normal;
+                -webkit-animation: elasticAfter 300ms 1 forwards normal;
+                -moz-animation: elasticAfter 300ms 1 forwards normal;
+                
+                animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                -webkit-animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                -moz-animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                
+            }
+            
+            /* Bounce cross */
+            @keyframes bounceBefore{
+                0%{
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+                100%{
+                    transform: rotate(180deg);
+                    -webkit-transform: rotate(180deg);
+                }
+            }
+            @-webkit-keyframes bounceBefore{
+                0%{
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+                100%{
+                    transform: rotate(180deg);
+                    -webkit-transform: rotate(180deg);
+                }
+            }
+            @-moz-keyframes bounceBefore{
+                0%{
+                    transform: rotate(45deg);
+                }
+                100%{
+                    transform: rotate(180deg);
+                }
+            }
+            
+            @keyframes bounceAfter{
+                0%{
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                }
+                100%{
+                    transform: rotate(180deg);
+                    -webkit-transform: rotate(180deg);
+                }
+            }
+            @-webkit-keyframes bounceAfter{
+                0%{
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                }
+                100%{
+                    transform: rotate(180deg);
+                    -webkit-transform: rotate(180deg);
+                }
+            }
+            @-moz-keyframes bounceAfter{
+                0%{
+                    transform: rotate(-45deg);
+                }
+                100%{
+                    transform: rotate(180deg);
+                }
+            }
+            
+            /* Elastic cross */
+            @keyframes elasticBefore{
+                0%{
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+                50%{
+                    transform: rotate(65deg);
+                    -webkit-transform: rotate(65deg);
+                }
+                100%{
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+            }
+            @-webkit-keyframes elasticBefore{
+                0%{
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+                50%{
+                    transform: rotate(65deg);
+                    -webkit-transform: rotate(65deg);
+                }
+                100%{
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+            }
+            @-moz-keyframes elasticBefore{
+                0%{
+                    transform: rotate(45deg);
+                }
+                50%{
+                    transform: rotate(65deg);
+                }
+                100%{
+                    transform: rotate(45deg);
+                }
+            }
+            
+            @keyframes elasticAfter{
+                0%{
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                }
+                50%{
+                    transform: rotate(-65deg);
+                    -webkit-transform: rotate(-65deg);
+                }
+                100%{
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                }
+            }
+            @-webkit-keyframes elasticAfter{
+                0%{
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                }
+                50%{
+                    transform: rotate(-65deg);
+                    -webkit-transform: rotate(-65deg);
+                }
+                100%{
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                }
+            }
+            @-moz-keyframes elasticAfter{
+                0%{
+                    transform: rotate(-45deg);
+                }
+                50%{
+                    transform: rotate(-65deg);
+                }
+                100%{
+                    transform: rotate(-45deg);
+                }
+            }
+            
+            /* Move Icon */
+            @keyframes moveIcon{
+                0%{
+                    transform: translateY(0);
+                    -webkit-transform: translateY(0);
+                }
+                33%{
+                    transform: translateY(2px);
+                    -webkit-transform: translateY(2px);
+                }
+                100%{
+                    transform: translateY(0);
+                    -webkit-transform: translateY(0);
+                }
+            }
+            @-webkit-keyframes moveIcon{
+                0%{
+                    transform: translateY(0);
+                    -webkit-transform: translateY(0);
+                }
+                33%{
+                    transform: translateY(2px);
+                    -webkit-transform: translateY(2px);
+                }
+                100%{
+                    transform: translateY(0);
+                    -webkit-transform: translateY(0);
+                }
+            }
+            @-moz-keyframes moveIcon{
+                0%{
+                    transform: translateY(0);
+                }
+                50%{
+                    transform: translateY(5px);
+                }
+                100%{
+                    transform: translateY(0);
+                }
+            }
+            
+            .popup-container{
+                position: relative;
+                top: 50%;
+                width: 100%;
+                max-width: 565px;
+                margin: 0 auto;
+                text-align: center;
+                border: 1px solid #d1d1d1;
+                background: #fbfbfb;
+                
+                
+                
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                
+                box-shadow: 0 1px 2px #ddd;
+                -webkit-box-shadow: 0 1px 2px #ddd;
+                
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translate(0, -50%);
+                -o-transform: translateY(-50%);
+            }
+            .popup-content{
+                padding: 15px;
+                
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+            .popup-image{
+                position: relative;
+            }
+            .popup-image .overlay-img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /*background: rgba(0,0,0,0.07);*/
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkit-box-shadow: inset 1px 1px 0 rgba(255,255,255,.1), inset -1px -1px 0 rgba(255,255,255,.1);
+                box-shadow: inset 1px 1px 0 rgba(255,255,255,.1), inset -1px -1px 0 rgba(255,255,255,.1);
+            }
+            .popup-image img{
+                width: 100%;
+                height: auto;
+                
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                
+                
+            }
+            .share-menu{
+                margin: 20px 0 20px 0;
+                padding: 0;
+            }
+            .share-button{
+                position: relative;
+                display: inline-block;
+                width: 33.33333%;
+                padding: 10px 7.5px;
+                font-size: 14px;
+                font-weight: 500;
+                text-decoration: none;
+                color: #fff;
+                
+                transition: all 0.5s ease-in;
+                -webkit-transition: all 0.5s ease-in;
+                -moz-transition: all 0.5s ease-in;
+                -o-transition: all 0.5s ease-in;
+                -ms-transition: all 0.5s ease-in;
+                
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+            .share-button:hover{
+                color: #fff;
+                text-decoration: none;
+            }
+            .share-menu .share-button:first-of-type:not(:last-of-type) {
+                border-radius: 3px 0 0 3px;      
+            }
+            .share-menu .share-button:last-of-type:not(:first-of-type) {
+                border-radius: 0 3px 3px 0;      
+            }
+            
+            .share-button.fb{
+                left: 0;  
+                background: #3b5998;
+                background: -webkit-gradient(linear,left bottom,left top,from(#3f5fa3),to(#3b5998));
+                background: -webkit-linear-gradient(bottom,#3f5fa3 0,#3b5998 100%);
+                background: linear-gradient(to top,#3f5fa3 0,#3b5998 100%);
+                border: 1px solid #324c82;
+                border-right: 0 none;
+                z-index: 11;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+            }
+            .share-button.fb:hover{
+                background: #4264aa;
+                background: -webkit-gradient(linear,left bottom,left top,from(#4466ae),to(#4264aa));
+                background: -webkit-linear-gradient(bottom,#4466ae 0,#4264aa 100%);
+                background: linear-gradient(to top,#4466ae 0,#4264aa 100%);
+                border-color: #324c82;
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+            }
+            
+            .share-button.twitter{
+                background: #55acee;
+                background: -webkit-gradient(linear,left bottom,left top,from(#63b3ef),to(#55acee));
+                background: -webkit-linear-gradient(bottom,#63b3ef 0,#55acee 100%);
+                background: linear-gradient(to top,#63b3ef 0,#55acee 100%);
+                border: 1px solid #399eeb;
+                border-right: 0 none;
+                z-index: 10;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+            }
+            .share-button.twitter:hover{
+                background: #6cb7f0;
+                background: -webkit-gradient(linear,left bottom,left top,from(#71baf1),to(#6cb7f0));
+                background: -webkit-linear-gradient(bottom,#71baf1 0,#6cb7f0 100%);
+                background: linear-gradient(to top,#71baf1 0,#6cb7f0 100%);
+                border-color: #399eeb;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+            }
+            
+            .share-button.buffer{
+                left: 0; 
+                background: #323b43;
+                background: -webkit-gradient(linear,left bottom,left top,from(#364049),to(#323b43));
+                background: -webkit-linear-gradient(bottom,#364049 0,#323b43 100%);
+                background: linear-gradient(to top,#364049 0,#323b43 100%);
+                border: 1px solid #252c31;
+                z-index: 12;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+            }
+            .share-button.buffer:hover{
+                background: #3d4852;
+                background: -webkit-gradient(linear,left bottom,left top,from(#3d4852),to(#3d4852));
+                background: -webkit-linear-gradient(bottom,#3d4852 0,#3d4852 100%);
+                background: linear-gradient(to top,#3d4852 0,#3d4852 100%);
+                border-color: #252c31;
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+            }
+            
+            .download{
+                margin: 0;
+                padding: 0;
+            }
+            .download-gif{
+                background: #6bba70; /* Old browsers */
+background: -moz-linear-gradient(top, #6bba70 0%, #61b765 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6bba70), color-stop(100%,#61b765)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #6bba70 0%,#61b765 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #6bba70 0%,#61b765 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #6bba70 0%,#61b765 100%); /* IE10+ */
+background: linear-gradient(to bottom, #6bba70 0%,#61b765 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6bba70', endColorstr='#61b765',GradientType=0 ); /* IE6-9 */
+                width: 100%;
+                border: 1px solid #5aa95d;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+            }
+            .download-gif:hover{
+                background: #73bd78; /* Old browsers */
+background: -moz-linear-gradient(top, #73bd78 0%, #6bbb6f 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#73bd78), color-stop(100%,#6bbb6f)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #73bd78 0%,#6bbb6f 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #73bd78 0%,#6bbb6f 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #73bd78 0%,#6bbb6f 100%); /* IE10+ */
+background: linear-gradient(to bottom, #73bd78 0%,#6bbb6f 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#73bd78', endColorstr='#6bbb6f',GradientType=0 ); /* IE6-9 */
+            }
+            .download-gif:hover .download-icon{
+                animation: moveIcon 350ms 1 forwards normal;
+                -webkit-animation: moveIcon 350ms 1 forwards normal;
+                -moz-animation: moveIcon 350ms 1 forwards normal;
+                
+                animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                -webkit-animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+                -moz-animation-timing-function: cubic-bezier(.16,.48,.94,.59);
+            }
+            .download-icon{
+                display: inline-block;
+                width: 14px;
+                height: 4px;
+                margin-right: 8px;
+                vertical-align: text-top;
+                background: #fff;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,.1);
+                box-shadow: inset 0 1px 0 rgba(0,0,0,.1);
+                
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+            }
+            .download-icon i{
+                position: relative;
+                display: inline-block;
+                margin-top:1px;
+                margin-left: 0;
+                width: 4px;
+                height: 12px;
+                background: #fff;
+                
+                
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+            }
+            .download-icon i:before,
+            .download-icon i:after{
+                content: "";
+                position: absolute;
+                width: 9px;
+                height: 4px;
+                bottom: -1px;
+                background: #fff;
+                
+                
+                
+                
+                
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;          
+                
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+            }
+            .download-icon i:before{
+                left: 0px;
+                
+                -webkit-box-shadow: inset -1px -1px 0 rgba(0,0,0,.05);
+                box-shadow: inset -1px -1px 0 rgba(0,0,0,.05);
+                
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+            }
+            .download-icon i:after{
+                right: 0px;
+                
+                -webkit-box-shadow: inset 1px -1px 0 rgba(0,0,0,.05);
+                box-shadow: inset 1px -1px 0 rgba(0,0,0,.05);
+                
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="popup-global">
+            <div id="popup-container" class="popup-container">
+                <div class="popup-close">
+                    <a href="#,">Close</a>
+                </div>
+                <div class="popup-content">
+                    <div class="popup-image">
+                        <div class="overlay-img"></div>
+                        <img src="http://lorempixel.com/400/200/" alt="Title of your gif">
+                    </div>
+                    <div class="share-menu">
+                        <a class="twitter share-button" href="#,">Share with Twitter</a><a class="fb share-button" href="#,">Share with Facebook</a><a class="buffer share-button" href="#,">Share with Buffer</a>
+                    </div>
+                    <p class="download">
+                        <a class="share-button download-gif" href="#,">
+                            <span class="download-icon"><i></i></span>
+                            Download GIF
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+
+
+/* Retina Screens */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+    
+    .gif-bubble{    
+        background-image: url("chrome-extension://hapbgckmhpgfdajmjbggpfhboaoonmfi/bubble-2@2x.png");
+        background-size: 88px 40px;
+    }
+    .gif-logo{
+
+        background-image: url("chrome-extension://hapbgckmhpgfdajmjbggpfhboaoonmfi/logo-2c@2x.png");
+        background-size: 42px 20px;
+    
+    }
+}

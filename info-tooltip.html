@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='css/normalize.min.css' rel='stylesheet' type='text/css'>
+        <title>Information tooltip</title>
+        <style>
+            .tooltip-container{
+                position: relative;
+                top: 30%;
+                left: 30%;
+                font-family: 'PT Sans', sans-serif;
+            }
+            
+            
+            .tooltip-content{
+                display: table;
+                position: relative;
+                padding: 5px 7.5px;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+                
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+            }
+            .yellow.tooltip-content{
+                border: 1px solid #febf04;
+                background: #ffd65e; /* Old browsers */
+background: -moz-linear-gradient(top, #ffd65e 0%, #ffcd51 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffd65e), color-stop(100%,#ffcd51)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffd65e 0%,#ffcd51 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffd65e 0%,#ffcd51 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffd65e 0%,#ffcd51 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ffd65e 0%,#ffcd51 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#ffcd51',GradientType=0 ); /* IE6-9 */
+            }
+            .black.tooltip-content{
+                border: 1px solid #000;
+                background: #333438; /* Old browsers */
+background: -moz-linear-gradient(top, #333438 0%, #2d2d2d 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#333438), color-stop(100%,#2d2d2d)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #333438 0%,#2d2d2d 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #333438 0%,#2d2d2d 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #333438 0%,#2d2d2d 100%); /* IE10+ */
+background: linear-gradient(to bottom, #333438 0%,#2d2d2d 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333438', endColorstr='#2d2d2d',GradientType=0 ); /* IE6-9 */
+copy
+            }
+            .dark-grey.tooltip-content{
+                border: 1px solid #252c31;
+                background: #323b43;
+                background: -webkit-gradient(linear,left bottom,left top,from(#364049),to(#323b43));
+                background: -webkit-linear-gradient(bottom,#364049 0,#323b43 100%);
+                background: linear-gradient(to top,#364049 0,#323b43 100%);
+            }
+            .tooltip-content:before {
+                content: "";
+                position: absolute;
+                top: auto;
+                bottom: -5px;
+                left: 10px;
+                pointer-events: none;
+                height: 8px;
+                width: 8px;
+                
+                -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.07), inset 1px 1px 0 rgba(255,255,255,.07);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.07), inset 1px 1px 0 rgba(255,255,255,.07);
+                
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                
+                transform: rotate(-135deg);
+                -webkit-transform: rotate(-135deg);
+                -moz-transform: rotate(-135deg);
+                -ms-transform: rotate(-135deg);
+                -o-transform: rotate(-135deg);
+            }
+            .yellow.tooltip-content:before {
+                background: #ffcd51;
+                border-left: 1px solid #febf04;
+                border-top: 1px solid #febf04;
+            }
+            .black.tooltip-content:before {
+                background: #333438;
+                border-left: 1px solid #000;
+                border-top: 1px solid #000;
+            }
+            .dark-grey.tooltip-content:before {
+                background: #364049;
+                border-left: 1px solid #252c31;
+                border-top: 1px solid #252c31;
+            }
+            /*
+            .tooltip-content:after {
+                border-color: rgba(136, 183, 213, 0);
+                border-bottom-color: #88b7d5;
+                border-width: 11px;
+                margin-left: -80px;
+            }
+            */
+            
+            .tooltip-content p{
+                margin: 0;
+                display: table-cell;
+                font-size: 10px;
+                font-weight: 500;
+                text-decoration: none;
+                
+            }
+            .yellow.tooltip-content p{
+                color: #444;
+            }
+            .black.tooltip-content p{
+                color: #fff;
+            }
+            .dark-grey.tooltip-content p{
+                color: #fff;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="tooltip-container">
+            <div class="tooltip"></div>
+            <div class="tooltip-content dark-grey">
+                <p>
+                    Drag me anywhere and select your favorite sequence!
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

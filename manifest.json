@@ -1,0 +1,51 @@
+{
+    "manifest_version": 2,
+    "name": "Giffi",
+    "description": "Allows you to select your favorite video sequence and share it as a gif!",
+    "version": "0.0.1",
+    
+    "browser_action": {
+        "default_icon": {                   
+            "19": "images/icon.png",          
+            "38": "images/icon.png"            
+        },
+        "default_title": "Turn videos from this page into gifs!"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "background",
+        "http://*/",
+        "https://*/"
+    ],
+    "web_accessible_resources": [
+        "Video.js",
+        "styles.css",
+        "responsive.css",
+        "bubble-2.png",
+        "logo-2c.png",
+        "bubble-2@2x.png",
+        "logo-2c@2x.png"
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "matches": [
+                "<all_urls>"
+            ],
+            "css":[
+                "styles.css",
+                "responsive.css"
+            ],
+            "js": [
+                "jquery-1.11.3.min.js",
+                "Video.js",
+                "content_script.js"
+            ]
+        }
+    ]
+}
